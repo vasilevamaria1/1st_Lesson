@@ -170,16 +170,44 @@ namespace _1st_Lesson
 
             /* Tasks:
              * 1. Find your BMI - body mass index
-             * 
+               #region first_task
+               double height = 1.6;
+               double mass = 43.0;
+               double ind=mass / (Math.Pow(height,2)) ;
+               Console.WriteLine($"Моя масса тела={ind:0.0}") ;//я округлила
+            #endregion
              * 2. Find the length of the ellipse sector curve with:
              *  a = 100 % (№ in the group)
              *  b = age - (a / № in the group)
              *  grad = 10 * (№ in the group)
-             * 
+              #region second_task
+            double a = 100 % 5.0;
+            double b = 18 - (5.0 / 17);
+            double grad = 10 * (5.0);
+            // P/360=L/grad через пропорции найдем длину дуги 
+            double p = 2*Math.PI*Math.Sqrt((Math.Pow(a,2)+Math.Pow(b,2))/2) ;// нашли периметр
+            Console.WriteLine($"Длина дуги:{p/360*grad:0.00}");//{:0.00} округляем до 2-ух знаков после запятой 
+            #endregion
              * 3. Find the step (d) and nth term of an Arithmetic Sequence when:
              *  a0 = (№ in the group)
              *  S = 1ddmm of your birth day
-             */
+             #region third_task
+            int a0 = 5;
+            double S = 13003.0;
+            Console.Write("Введите количество(>=0) элементов в ариф., прогрессии :");
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n<=0)
+            {    
+                Console.WriteLine("Вы ввели неверные данные ");
+                Console.Write("Введите количество элементов в ариф., прогрессии:");
+                n = Convert.ToInt32(Console.ReadLine());
+                
+            }
+            while (n == 0);
+            var An = (((2 * S) / n ) - a0);//воспользуемся формулами и через сумма найдем Аn элемент 
+            var d = ((2*S/n)-2*a0)/(n-1);//также через формулу суммы найдем шаг прогрессии 
+            Console.WriteLine($"{An}\nd={d}");
+            #endregion
         }
     }
 }
